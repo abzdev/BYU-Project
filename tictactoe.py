@@ -13,7 +13,7 @@ def play_again():
 
 def who_goes_first(p1, p2):
     # Randomly choose the player who goes first.
-    return p1.name if random.randint(0, 1) == 0 else p2.name
+    return p1 if random.randint(0, 1) == 0 else p2
 
 
 print('Welcome to Tic Tac Toe!')
@@ -23,16 +23,16 @@ while True:
     theBoard = Board([' '] * 10)
     name1 = input("Enter the first player's name: ")
     name2 = input("Enter the second player's name: ")
-    player1Letter, player2Letter = Player.input_1st_player_letter()
+    player1Letter, player2Letter = Player.input_1st_player_letter(name1)
     player1 = Player(name1, player1Letter)
     player2 = Player(name2, player2Letter)
     turn = who_goes_first(player1, player2)
-    print(turn + ' will go first.')
+    print(turn.name + ' will go first.')
     gameIsPlaying = True
 
     while gameIsPlaying:
 
-        if turn == 'player1':
+        if turn == player1:
             # Player 1's turn.
             theBoard.draw_board()
             move = player1.get_player_move(theBoard)
@@ -48,7 +48,7 @@ while True:
                     print('The game is a tie!')
                     break
                 else:
-                    turn = 'player2'
+                    turn = player2
 
         else:
             # Player 2's turn.
@@ -66,7 +66,7 @@ while True:
                     print('The game is a tie!')
                     break
                 else:
-                    turn = 'player1'
+                    turn = player1
 
     if not play_again():
         break

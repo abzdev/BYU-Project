@@ -1,6 +1,3 @@
-import random
-
-
 class Board:
     def __init__(self, board):
         self.board = board
@@ -10,7 +7,7 @@ class Board:
 
         # "board" is a list of 10 strings representing the board (ignore index 0)
         print('   |   |')
-        print(' ' + self.board[1] + ' | ' + self.board[2] + ' | ' + self.board[3])
+        print(' ' + self.board[7] + ' | ' + self.board[8] + ' | ' + self.board[9])
         print('   |   |')
         print('-----------')
         print('   |   |')
@@ -18,7 +15,7 @@ class Board:
         print('   |   |')
         print('-----------')
         print('   |   |')
-        print(' ' + self.board[7] + ' | ' + self.board[8] + ' | ' + self.board[9])
+        print(' ' + self.board[1] + ' | ' + self.board[2] + ' | ' + self.board[3])
         print('   |   |')
 
     def get_board_copy(self):
@@ -55,16 +52,3 @@ class Board:
                 (self.board[9] == le and self.board[6] == le and self.board[3] == le) or  # down the right side
                 (self.board[7] == le and self.board[5] == le and self.board[3] == le) or  # diagonal
                 (self.board[9] == le and self.board[5] == le and self.board[1] == le))  # diagonal
-
-    def choose_random_move_from_list(self, moves_list):
-        # Returns a valid move from the passed list on the passed board.
-        # Returns None if there is no valid move.
-        possible_moves = []
-        for i in moves_list:
-            if self.is_space_free(i):
-                possible_moves.append(i)
-
-        if len(possible_moves) != 0:
-            return random.choice(possible_moves)
-        else:
-            return None

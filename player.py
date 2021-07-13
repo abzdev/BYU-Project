@@ -4,12 +4,12 @@ class Player:
         self.letter = letter
 
     @staticmethod
-    def input_1st_player_letter():
+    def input_1st_player_letter(name):
         # Lets the player type which letter they want to be.
         # Returns a list with the player's letter as the first item, and the computer's letter as the second.
         letter = ''
         while not (letter == 'X' or letter == 'O'):
-            print('Does Player 1 want to be X or O?')
+            print(f'Does {name} want to be X or O?')
             letter = input().upper()
 
         # the first element in the tuple is the player's letter, the second is the computer's letter.
