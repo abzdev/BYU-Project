@@ -2,6 +2,9 @@ class Board:
     def __init__(self, board):
         self.board = board
 
+    def __repr__(self):
+        return "<" + self.__class__.__name__ + " board=" + str(self.board) + ">"
+
     def draw_board(self):
         # This function prints out the board that it was passed.
 
@@ -40,15 +43,3 @@ class Board:
 
     def make_move(self, letter, move):
         self.board[move] = letter
-
-    def is_winner(self, le):
-        # Given a board and a player's letter, this function returns True if that player has won.
-        # We use bo instead of board and le instead of letter so we don't have to type as much.
-        return ((self.board[7] == le and self.board[8] == le and self.board[9] == le) or  # across the top
-                (self.board[4] == le and self.board[5] == le and self.board[6] == le) or  # across the middle
-                (self.board[1] == le and self.board[2] == le and self.board[3] == le) or  # across the bottom
-                (self.board[7] == le and self.board[4] == le and self.board[1] == le) or  # down the left side
-                (self.board[8] == le and self.board[5] == le and self.board[2] == le) or  # down the middle
-                (self.board[9] == le and self.board[6] == le and self.board[3] == le) or  # down the right side
-                (self.board[7] == le and self.board[5] == le and self.board[3] == le) or  # diagonal
-                (self.board[9] == le and self.board[5] == le and self.board[1] == le))  # diagonal

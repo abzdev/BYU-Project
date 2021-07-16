@@ -1,6 +1,7 @@
 # Tic Tac Toe
 
 import random
+
 from board import Board
 from player import Player
 
@@ -38,7 +39,7 @@ while True:
             move = player1.get_player_move(theBoard)
             theBoard.make_move(player1.letter, move)
 
-            if theBoard.is_winner(player1.letter):
+            if player1.is_winner(theBoard):
                 theBoard.draw_board()
                 print(f'Hooray! {player1.name} has won the game!')
                 gameIsPlaying = False
@@ -56,7 +57,7 @@ while True:
             move = player2.get_player_move(theBoard)
             theBoard.make_move(player2.letter, move)
 
-            if theBoard.is_winner(player2.letter):
+            if player2.is_winner(theBoard):
                 theBoard.draw_board()
                 print(f'Hooray! {player2.name} has won the game!')
                 gameIsPlaying = False
